@@ -1,38 +1,109 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
+.row {
+  display: flex;
+}
+
+.cell {
+  position: relative;
+
+  width: 50px;
+  height: 50px;
+  background-color: rgb(226, 173, 75);
+
+  cursor: pointer;
+}
+
+.cell:before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  left: 24px;
+  top: 0;
+  background-color: #000;
+
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cell:hover {
+  background-color: brown;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cell:after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  top: 24px;
+  left: 0;
+  background-color: #000;
+  pointer-events: none;
+}
+
+.dol {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.black {
+  background-color: #000;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.message-box {
+  position: fixed;
+
+  width: 100%;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  transition: all 0.5s ease;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 2;
 }
 
-.App-link {
-  color: #61dafb;
+.show {
+  opacity: 1;
+  visibility: visible;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.message {
+  font-size: 36px;
+  color: #f7f7f7;
+  text-align: center;
+  position: absolute;
+
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-start {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translateX(-50%);
 }
